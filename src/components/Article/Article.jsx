@@ -8,6 +8,7 @@ const Article = (props) => {
   return (
     <div>
       <img className="max-h-[460px] w-full" src={img} alt="" />
+      {/* Author info part */}
       <div className="flex justify-between mt-8">
         <div className="flex items-center">
           <img className="w-14 rounded-full mr-4" src={authorImage} alt="" />
@@ -17,7 +18,7 @@ const Article = (props) => {
           </div>
         </div>
         <div>
-          {readTime} min read{" "}
+          {readTime} min read
           <FontAwesomeIcon
             onClick={() => {
               handleBookmark(props.article);
@@ -27,6 +28,7 @@ const Article = (props) => {
           />
         </div>
       </div>
+      {/* End of author info part */}
       <h2 className="text-3xl font-semibold my-3 ">{title}</h2>
       <a
         onClick={() => handleReadTime(props.article)}

@@ -12,12 +12,14 @@ const Blog = () => {
   let [change, setChange] = useState(0);
   let [bookmarkedArticles, setBookmarkedArticles] = useState([]);
 
+  // Loading data from json file.
   useEffect(() => {
     fetch("blog.json")
       .then((res) => res.json())
       .then((data) => setArticles(data));
   }, []);
 
+  // Setting bookmark using data from local storage.
   useEffect(() => {
     const bookmarks = getBookmark();
     bookmarkCount = bookmarks.length;
@@ -32,11 +34,13 @@ const Blog = () => {
     setBookmarkedArticles(savedArticle);
   }, [articles, change]);
 
+  // Handle read time function
   const handleReadTime = (article) => {
     time = time + article.readTime;
     setTime(time);
   };
 
+  // Handle bookmark function
   const handleBookmark = (article) => {
     const exists = addToDb(article.id);
     if (exists) {
