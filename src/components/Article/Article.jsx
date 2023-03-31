@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Article = (props) => {
   const { img, authorImage, authorName, publishedDate, readTime, title } = props.article;
   const handleReadTime = props.handleReadTime;
+  const handleBookmark = props.handleBookmark;
   return (
     <div>
       <img className="max-h-[460px] w-full" src={img} alt="" />
@@ -16,7 +17,14 @@ const Article = (props) => {
           </div>
         </div>
         <div>
-          {readTime} min read <FontAwesomeIcon className="ml-2" icon="fa-solid fa-bookmark" />
+          {readTime} min read{" "}
+          <FontAwesomeIcon
+            onClick={() => {
+              handleBookmark(props.article);
+            }}
+            className="ml-2"
+            icon="fa-solid fa-bookmark"
+          />
         </div>
       </div>
       <h2 className="text-3xl font-semibold my-3 ">{title}</h2>
