@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Article from "../Article/Article";
 import { addToDb, getBookmark } from "../../utilites/fakedb";
-import { faHourglass3 } from "@fortawesome/free-solid-svg-icons";
 import Bookmarked from "../Bookmarked/Bookmarked";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Blog = () => {
   const [articles, setArticles] = useState([]);
@@ -37,7 +38,10 @@ const Blog = () => {
   };
 
   const handleBookmark = (article) => {
-    addToDb(article.id);
+    const exists = addToDb(article.id);
+    if (exists) {
+      toast("Already Bookmarked");
+    }
     setChange(change + 1);
   };
 
@@ -73,6 +77,7 @@ const Blog = () => {
           ))}
         </div>
       </div>
+      <ToastContainer />;
     </div>
   );
 };
