@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import * as Icons from "@fortawesome/free-solid-svg-icons";
+import QAsection from "./components/QAsection/QAsection";
 
 const iconList = Object.keys(Icons)
   .filter((key) => key !== "fas" && key !== "prefix")
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <Blog></Blog>
+      <QAsection></QAsection>
     </div>
   );
 }

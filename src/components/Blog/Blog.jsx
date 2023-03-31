@@ -59,7 +59,7 @@ const Blog = () => {
         ))}
       </div>
       {/* Sidebar */}
-      <div className="ml-7">
+      <div className="ml-7 mb-10">
         <div className=" sticky top-8 w-full lg:w-96 bg-purple-100 border-2 rounded-md border-purple-600">
           <h4 className="px-8 py-3 text-center font-semibold text-xl">
             Spent time on read: {time} min
