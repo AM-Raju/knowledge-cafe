@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Article from "../Article/Article";
 import { addToDb, getBookmark } from "../../utilites/fakedb";
 import { faHourglass3 } from "@fortawesome/free-solid-svg-icons";
+import Bookmarked from "../Bookmarked/Bookmarked";
 
 const Blog = () => {
   const [articles, setArticles] = useState([]);
@@ -56,12 +57,19 @@ const Blog = () => {
       {/* Sidebar */}
       <div className="ml-7">
         <div className=" sticky top-8 w-full lg:w-96 bg-purple-100 border-2 rounded-md border-purple-600">
-          <h4 className="px-8 py-3 text-center font-semibold">Spent time on read: {time} min</h4>
+          <h4 className="px-8 py-3 text-center font-semibold text-xl">
+            Spent time on read: {time} min
+          </h4>
         </div>
         <div className="mt-4 sticky top-24 w-full lg:w-96 px-8 py-3 bg-gray-200 rounded-md">
-          <h4 className=" mb-4 text-center font-semibold">Bookmarked Blogs: {bookmarkCount}</h4>
+          <h4 className=" mb-4 text-center text-xl font-semibold">
+            Bookmarked Blogs: {bookmarkCount}
+          </h4>
           {bookmarkedArticles.map((bookmarkedArticle) => (
-            <p>{bookmarkedArticle.title}</p>
+            <Bookmarked
+              bookmarkedArticle={bookmarkedArticle}
+              key={bookmarkedArticle.id}
+            ></Bookmarked>
           ))}
         </div>
       </div>
