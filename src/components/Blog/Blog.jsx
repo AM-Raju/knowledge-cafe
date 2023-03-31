@@ -46,9 +46,9 @@ const Blog = () => {
   };
 
   return (
-    <div className="max-w-[1280px] flex mt-8 px-6 lg:px-0">
+    <div className="max-w-[1280px] lg:flex mt-8 px-6 lg:px-0">
       {/* Article part */}
-      <div className="w-4/6">
+      <div className="w-full lg:w-4/6">
         {articles.map((article) => (
           <Article
             handleBookmark={handleBookmark}
